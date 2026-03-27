@@ -7,7 +7,7 @@ export default function Home() {
             <main className="flex-1 flex flex-col items-center justify-center px-6 gap-6">
                 <div className="flex flex-col items-center gap-3">
                     <Image
-                        src="/rubber_duck.webp"
+                        src="/rubber_duck_larger.webp"
                         alt="Rubber duck"
                         width={200}
                         height={200}

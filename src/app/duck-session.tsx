@@ -1,6 +1,11 @@
 'use client'
 
-import {useState} from 'react'
+import {useMemo, useState} from 'react'
+
+const PLACEHOLDERS = [
+    "My code doesn't work and I don't know why. It worked yesterday. Nothing changed. I hate everything...",
+    "It was working fine and then I refactored it and now it's not and I don't know why...",
+]
 
 const RESPONSES = [
     "Quack.",
@@ -18,6 +23,10 @@ export default function DuckSession() {
     const [response, setResponse] = useState('')
     const [responseIndex, setResponseIndex] = useState(0)
     const [solved, setSolved] = useState(false)
+    const placeholder = useMemo(
+        () => PLACEHOLDERS[Math.floor(Math.random() * PLACEHOLDERS.length)],
+        []
+    )
 
     function handleSubmit() {
         if (!problem.trim()) return
@@ -65,7 +74,7 @@ export default function DuckSession() {
               onKeyDown={(e) => {
                   if (e.key === 'Enter' && (e.metaKey || e.ctrlKey)) handleSubmit()
               }}
-              placeholder="My code doesn't work and I don't know why. It worked yesterday. Nothing changed. I hate everything..."
+              placeholder={placeholder}
               rows={3}
               className="w-full rounded-xl border border-zinc-200 bg-white px-4 py-3 text-sm text-zinc-800 placeholder:text-zinc-300 focus:outline-none focus:border-zinc-400 resize-none transition-colors"
           />
