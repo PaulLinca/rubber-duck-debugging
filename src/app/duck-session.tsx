@@ -1,6 +1,6 @@
 'use client'
 
-import {useMemo, useState} from 'react'
+import {useEffect, useState} from 'react'
 
 const PLACEHOLDERS = [
     "My code doesn't work and I don't know why. It worked yesterday. Nothing changed. I hate everything...",
@@ -23,10 +23,10 @@ export default function DuckSession() {
     const [response, setResponse] = useState('')
     const [responseIndex, setResponseIndex] = useState(0)
     const [solved, setSolved] = useState(false)
-    const placeholder = useMemo(
-        () => PLACEHOLDERS[Math.floor(Math.random() * PLACEHOLDERS.length)],
-        []
-    )
+    const [placeholder, setPlaceholder] = useState(PLACEHOLDERS[0])
+    useEffect(() => {
+        setPlaceholder(PLACEHOLDERS[Math.floor(Math.random() * PLACEHOLDERS.length)])
+    }, [])
 
     function handleSubmit() {
         if (!problem.trim()) return
@@ -83,7 +83,7 @@ export default function DuckSession() {
                         disabled={!problem.trim()}
                         className="self-start rounded-lg bg-zinc-900 hover:bg-zinc-700 disabled:opacity-30 disabled:cursor-not-allowed text-white text-sm font-medium px-5 py-2.5 transition-colors"
                     >
-                        Talk to the Duck
+                        Talk to the duck
                     </button>
                 </div>
             )}
