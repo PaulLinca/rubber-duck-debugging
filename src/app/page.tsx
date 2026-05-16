@@ -30,14 +30,6 @@ export default function Home() {
 
             <footer className="px-6 py-4 text-center text-xs text-zinc-300 flex flex-col gap-1 items-center">
                 <span>The duck takes no credit. The duck takes no blame.</span>
-                <a
-                    href="https://buymeacoffee.com/vybesappsv"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-zinc-300 hover:text-zinc-500 transition-colors"
-                >
-                    Buy the duck a coffee.
-                </a>
             </footer>
         </div>
     )
